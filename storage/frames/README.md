@@ -1,0 +1,1 @@
+Storage folder for the extracted frames from the test video.
