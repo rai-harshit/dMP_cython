@@ -1,0 +1,5 @@
+import shlex, subprocess
+command = ""
+cmd = shlex.split(command)
+p1 = subprocess.Popen(cmd, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+outdata, errdata = p1.communicate()

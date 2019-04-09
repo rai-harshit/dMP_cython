@@ -1,31 +1,26 @@
 # Importing Libraries : Start
-from keras.models import load_model
+# from keras.models import load_model
 import os
 import cv2
 import numpy as np
 import time
 import shutil
-from subprocess import Popen, PIPE
 # Imporing Libraries : End
 
 # Defining Constant & Loading Model : Start
-video_file = "GET FILE NAME HERE WITH COMPLETE PATH"
-unique_file_identifier = "SOME UNIQUE IDENTIFIER FROM PASSED FILE"
+video_file = "test.mp4"
 storage = ".\\storage\\"
 
 # model_file = storage+"\\model.h5"
-frames_store = storage+"\\frames\\+{}".format(unique_file_identifier)
+frames_store = storage+"\\frames\\"
 sensitivity = 0.05
 # model = load_model(model_file)
-# Defining Constant & Loading Model : End
 
 # Frame Extraction : Start
-
-# os.system('ffmpeg -i {} -vf  "select=gt(scene\\,{}), scale=300:300, showinfo" -vsync vfr {}%01d.jpg 2>&1 | findstr /r "pts_time:[0-9]*.[0-9]*" > timestamp_{}.log '.format(video_file,sensitivity,frames_store,unique_file_identifier))
-Popen('ffmpeg -i {} -vf  "select=gt(scene\\,{}), scale=300:300, showinfo" -vsync vfr {}%01d.jpg 2>&1 | findstr /r "pts_time:[0-9]*.[0-9]*" > timestamp_{}.log '.format(video_file,sensitivity,frames_store,unique_file_identifier))
+os.system('ffmpeg -i {} -vf  "select=gt(scene\\,{}), scale=300:300, showinfo" -vsync vfr {}%01d.jpg 2>&1 | findstr /r "pts_time:[0-9]*.[0-9]*" > timestamp.log '.format(video_file,sensitivity,frames_store))
 # Frame Extraction : End
 
-# Frame Processing : Start
+# # Frame Processing : Start
 # list1 = []
 # TsData = []
 # timestamps = []
